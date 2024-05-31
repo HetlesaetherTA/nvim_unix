@@ -2,6 +2,7 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
   -- Packer can manage itself
+  use 'williamboman/mason.nvim'  -- LSP, DAP, Linter, Formatter
   use 'wbthomason/packer.nvim'
   use 'L3MON4D3/LuaSnip'
   use 'hrsh7th/cmp-nvim-lsp'
@@ -10,7 +11,6 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
   use 'folke/tokyonight.nvim' -- Colorscheme
-  use 'williamboman/mason.nvim' -- LSP, DAP, Linter, Formatter
   use "williamboman/mason-lspconfig.nvim" -- Mason language server
   use "neovim/nvim-lspconfig" -- Nvim language server
   use "tpope/vim-commentary" -- Comment out line with gcc & gc

@@ -19,10 +19,6 @@ nnoremap("<c-k>", "<c-u>zz<cr>")
 -- end)
 
 
--- move cursor line {down: j, up: k}
-vim.keymap.set("v", "j", ":m '>+1<cr>gv=gv")
-vim.keymap.set("v", "k", ":m '<-2<cr>gv=gv")
-
 -- swap current line with line {below: J, abolve: K}
 vim.keymap.set('n', 'J', ':m .+1<CR>==', { noremap = true, silent = true })
 vim.keymap.set('n', 'K', ':m .-2<CR>==', { noremap = true, silent = true })

@@ -7,12 +7,12 @@ require("mason-lspconfig").setup {
 
 -- Go LSP
 require("lspconfig").gopls.setup {
-  cmd = {
-    os.getenv("UserProfile"):gsub("\\", "/") .. '/go/bin/gopls',
-    -- '-v',
-    -- '-rpc.trace',
-    -- os.getenv("UserProfile"):gsub("\\", "/") .. '/go/bin/gopls.log',
-  },
+  -- cmd = {
+  --   os.getenv("UserProfile"):gsub("\\", "/") .. '/go/bin/gopls',
+  --   -- '-v',
+  --   -- '-rpc.trace',
+  --   -- os.getenv("UserProfile"):gsub("\\", "/") .. '/go/bin/gopls.log',
+  -- },
   settings = {
     gopls = {
       experimentalPostfixCompletions = true,

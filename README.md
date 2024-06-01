@@ -81,10 +81,14 @@ git clone --filter=blob:none https://github.com/folke/lazy.nvim.git --branch=sta
 
 ### GO:
 
-go install golang.org/x/tools/gopls@latest 
-go install github.com/incu6us/goimports-reviser/v3@latest 
-go install mvdan.cc/gofumpt@latest 
-go install github.com/segmentio/golines@latest v0.11.0@latest 
-go install github.com/go-delve/delve/cmd/dlv@latest 
+go install golang.org/x/tools/gopls@latest
+
+go install github.com/incu6us/goimports-reviser/v3@latest
+
+go install mvdan.cc/gofumpt@latest
+
+go install github.com/segmentio/golines@latest
+
+go install github.com/go-delve/delve/cmd/dlv@latest
 
 !! remember to add "export PATH=$PATH:$(go env GOPATH)/bin" to ~/.zshrc to access from shell}

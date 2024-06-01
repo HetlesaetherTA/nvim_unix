@@ -93,4 +93,4 @@ go install github.com/segmentio/golines@latest
 
 go install github.com/go-delve/delve/cmd/dlv@latest
 
-!! remember to add "export PATH=$PATH:$(go env GOPATH)/bin" to ~/.zshrc to access from shell}
+!! remember to add "export PATH=$PATH:$(go env GOPATH)/bin" to ~/.zshrc (unix) or path (windows) to access from shell}

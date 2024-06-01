@@ -16,8 +16,13 @@ Unix: ~/.config/
 ### Step 3:
 Install Lazy.nvim package manager 
 
-Windows: git clone --filter=blob:none https://github.com/folke/lazy.nvim.git --branch=stable ~/.local/share/nvim/site/pack/lazy/start/lazy.nvim
-Unix: git clone --filter=blob:none https://github.com/folke/lazy.nvim.git --branch=stable %LOCALAPPDATA%\nvim-data\site\pack\lazy\start\lazy.nvim
+##### Windows: 
+
+git clone --filter=blob:none https://github.com/folke/lazy.nvim.git --branch=stable ~/.local/share/nvim/site/pack/lazy/start/lazy.nvim
+
+##### Unix: 
+
+git clone --filter=blob:none https://github.com/folke/lazy.nvim.git --branch=stable %LOCALAPPDATA%\nvim-data\site\pack\lazy\start\lazy.nvim
 
 # Keybinds
 

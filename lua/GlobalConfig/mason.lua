@@ -1,33 +1,42 @@
 require("mason").setup()
 require("lspconfig.configs")
+
 require("mason-lspconfig").setup {
-  ensure_installed = {"lua_ls", "gopls", "rust_analyzer", "jedi_language_server"},
+  ensure_installed = {"lua_ls", "gopls"},
   automatic_installation = true,
 }
 
--- Go LSP
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+local on_attach = function(_, bufnr)
+  -- Enable completion triggered by <c-x><c-o>
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+end
+
+local util = require("lspconfig/util")
+-- Gopls config
+
 require("lspconfig").gopls.setup {
-  -- cmd = {
-  --   os.getenv("UserProfile"):gsub("\\", "/") .. '/go/bin/gopls',
-  --   -- '-v',
-  --   -- '-rpc.trace',
-  --   -- os.getenv("UserProfile"):gsub("\\", "/") .. '/go/bin/gopls.log',
-  -- },
-  settings = {
-    gopls = {
-      experimentalPostfixCompletions = true,
-      -- experimentalWorkspaceModule = true
-      -- expandWorkspaceToModule = true,
-      analyses = {
-        unusedparams = true,
-        shadow = true,
-      },
-      staticcheck = true,
-      codelenses = {
-        gc_details = true,
-      }
-    },
-  }
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = {"gopls"},
+  filetypes = { "go", "gomod", "gowork", "gotmpl" },
+  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+  -- settings = {
+  --   gopls = {
+  --     experimentalPostfixCompletions = true,
+  --     -- experimentalWorkspaceModule = true
+  --     -- expandWorkspaceToModule = true,
+  --     analyses = {
+  --       unusedparams = true,
+  --       shadow = true,
+  --     },
+  --     staticcheck = true,
+  --     codelenses = {
+  --       gc_details = true,
+  --     }
+  --   },
+  -- }
 }
 
 -- Lua LSP

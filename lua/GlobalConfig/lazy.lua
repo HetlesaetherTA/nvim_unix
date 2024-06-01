@@ -36,4 +36,5 @@ require("lazy").setup({
   'tpope/vim-fugitive', -- Fugitive
   'tpope/vim-surround', -- Replace code (cs"') "Hello" -> 'Hello'
   'ThePrimeagen/harpoon', -- Harpoon
+  'nvim-treesitter/nvim-treesitter', -- syntax highlighting etc
 })

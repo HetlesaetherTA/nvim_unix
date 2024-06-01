@@ -69,12 +69,13 @@ Jedi
 | n       | `if`                     | Treesitter: Select inner part of a function  |
 | n       | `ac`                     | Treesitter: Select around a class            |
 | n       | `ic`                     | Treesitter: Select inner part of a class     |
-GO Dependencies:
 
-go install golang.org/x/tools/gopls@latest
-go install github.com/incu6us/goimports-reviser/v3@latest
-go install mvdan.cc/gofumpt@latest
-go install github.com/segmentio/golines@latest v0.11.0@latest
-go install github.com/go-delve/delve/cmd/dlv@latest
+#Dependencies
+|GO |
+|go install golang.org/x/tools/gopls@latest |
+|go install github.com/incu6us/goimports-reviser/v3@latest |
+|go install mvdan.cc/gofumpt@latest |
+|go install github.com/segmentio/golines@latest v0.11.0@latest |
+|go install github.com/go-delve/delve/cmd/dlv@latest |
 
-{add export PATH=$PATH:$(go env GOPATH)/bin to ~/.zshrc to access from shell}
+!! remember to add "export PATH=$PATH:$(go env GOPATH)/bin" to ~/.zshrc to access from shell}

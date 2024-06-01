@@ -1,23 +1,25 @@
 ﻿# nvim_config
 
-Installation:
-
-Step 1: Install Neovim (version 0.9.x)
-Step 2: Clone Depository to 
-Windows: ~\AppData\Local\
-Linux: ~/.config/
-Macos: idk
-Step 3<: Don't remember...
-
-Cheat sheet:
+## Cheat sheet:
 :e $MYVIMRC
 
-Dependencies:
-Jedi
+## Installation:
 
-#Tools
+### Step 1: 
+Install Neovim (version 0.9.x)
 
-#Keybinds
+### Step 2: 
+Clone Depository to 
+Windows: ~\AppData\Local\
+Unix: ~/.config/
+
+### Step 3:
+Install Lazy.nvim package manager 
+
+Windows: git clone --filter=blob:none https://github.com/folke/lazy.nvim.git --branch=stable ~/.local/share/nvim/site/pack/lazy/start/lazy.nvim
+Unix: git clone --filter=blob:none https://github.com/folke/lazy.nvim.git --branch=stable %LOCALAPPDATA%\nvim-data\site\pack\lazy\start\lazy.nvim
+
+# Keybinds
 
 | Mode    | Key Binding              | Action                                       |
 |---------|--------------------------|----------------------------------------------|
@@ -70,12 +72,14 @@ Jedi
 | n       | `ac`                     | Treesitter: Select around a class            |
 | n       | `ic`                     | Treesitter: Select inner part of a class     |
 
-#Dependencies
-|GO |
-|go install golang.org/x/tools/gopls@latest |
-|go install github.com/incu6us/goimports-reviser/v3@latest |
-|go install mvdan.cc/gofumpt@latest |
-|go install github.com/segmentio/golines@latest v0.11.0@latest |
-|go install github.com/go-delve/delve/cmd/dlv@latest |
+# Dependencies
+
+### GO:
+
+go install golang.org/x/tools/gopls@latest 
+go install github.com/incu6us/goimports-reviser/v3@latest 
+go install mvdan.cc/gofumpt@latest 
+go install github.com/segmentio/golines@latest v0.11.0@latest 
+go install github.com/go-delve/delve/cmd/dlv@latest 
 
 !! remember to add "export PATH=$PATH:$(go env GOPATH)/bin" to ~/.zshrc to access from shell}

@@ -10,6 +10,8 @@ Install Neovim (version 0.9.x)
 
 ### Step 2: 
 Clone Depository to 
+
+
 Windows: ~\AppData\Local\
 Unix: ~/.config/
 

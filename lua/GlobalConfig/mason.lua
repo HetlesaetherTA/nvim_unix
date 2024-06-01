@@ -14,6 +14,7 @@ local on_attach = function(_, bufnr)
 end
 
 local util = require("lspconfig/util")
+
 -- Gopls config
 
 require("lspconfig").gopls.setup {
@@ -22,21 +23,23 @@ require("lspconfig").gopls.setup {
   cmd = {"gopls"},
   filetypes = { "go", "gomod", "gowork", "gotmpl" },
   root_dir = util.root_pattern("go.work", "go.mod", ".git"),
-  -- settings = {
-  --   gopls = {
-  --     experimentalPostfixCompletions = true,
-  --     -- experimentalWorkspaceModule = true
-  --     -- expandWorkspaceToModule = true,
-  --     analyses = {
-  --       unusedparams = true,
-  --       shadow = true,
-  --     },
-  --     staticcheck = true,
-  --     codelenses = {
-  --       gc_details = true,
-  --     }
-  --   },
-  -- }
+  settings = {
+    gopls = {
+      completeUnimported = true,
+      usePlaceholders = true,
+      experimentalPostfixCompletions = true,
+      -- experimentalWorkspaceModule = true
+      -- expandWorkspaceToModule = true,
+      analyses = {
+        unusedparams = true,
+        -- shadow = true,
+      },
+      -- staticcheck = true,
+      -- codelenses = {
+        -- gc_details = true,
+      -- }
+    },
+  }
 }
 
 -- Lua LSP

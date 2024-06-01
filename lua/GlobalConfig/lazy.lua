@@ -12,15 +12,15 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  "williamboman/mason.nvim",
+  'williamboman/mason.nvim', -- LSP, DAP, Linter, Formatter
+  'mfussenegger/nvim-dap',
+  'leoluz/nvim-dap-go',
   'L3MON4D3/LuaSnip',
   'hrsh7th/cmp-nvim-lsp',
   'hrsh7th/cmp-buffer',
   'hrsh7th/cmp-path',
   'hrsh7th/cmp-cmdline',
   'hrsh7th/nvim-cmp',
-  'folke/tokyonight.nvim', -- Colorscheme
-  'williamboman/mason.nvim', -- LSP, DAP, Linter, Formatter
   "williamboman/mason-lspconfig.nvim", -- Mason language server
   "neovim/nvim-lspconfig", -- Nvim language server
   "tpope/vim-commentary", -- Comment out line with gcc & gc
@@ -30,11 +30,28 @@ require("lazy").setup({
   "lambdalisue/suda.vim", -- Force sudo
   "vim-airline/vim-airline", -- Status bar
   "preservim/tagbar", -- Tagbar for code navigation
-  -- use "mhartington/formatter.nvim" -- Formatter
   'mbbill/undotree', -- Undotree
   'nvim-lua/plenary.nvim', -- Plenary
   'tpope/vim-fugitive', -- Fugitive
   'tpope/vim-surround', -- Replace code (cs"') "Hello" -> 'Hello'
   'ThePrimeagen/harpoon', -- Harpoon
   'nvim-treesitter/nvim-treesitter', -- syntax highlighting etc
+  'jose-elias-alvarez/null-ls.nvim', -- auto formatter
+{  'olexsmir/gopher.nvim', -- Go bonus features (Only in GO)
+  ft = 'go',
+  config = function(_, opts)
+    require("gopher").setup(opts)
+    vim.cmd [[
+      augroup GopherSetup
+        autocmd!
+        autocmd FileType go silent! GoInstallDeps
+      augroup END
+    ]]
+  end,
+  build = function()
+    vim.cmd [[silent! GoInstallDeps]]
+  end,
+  },
 })
+
+

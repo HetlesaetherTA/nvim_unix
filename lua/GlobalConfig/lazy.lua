@@ -12,6 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+  'morhetz/gruvbox',
   'williamboman/mason.nvim', -- LSP, DAP, Linter, Formatter
   'mfussenegger/nvim-dap',
   'leoluz/nvim-dap-go',
@@ -37,7 +38,9 @@ require("lazy").setup({
   'ThePrimeagen/harpoon', -- Harpoon
   'nvim-treesitter/nvim-treesitter', -- syntax highlighting etc
   'jose-elias-alvarez/null-ls.nvim', -- auto formatter
-{  'olexsmir/gopher.nvim', -- Go bonus features (Only in GO)
+  'MunifTanjim/prettier.nvim', -- html formatter engine
+  {
+  'olexsmir/gopher.nvim', -- Go bonus features (Only in GO)
   ft = 'go',
   config = function(_, opts)
     require("gopher").setup(opts)
@@ -51,6 +54,21 @@ require("lazy").setup({
   build = function()
     vim.cmd [[silent! GoInstallDeps]]
   end,
+  },
+  {
+  'norcalli/nvim-colorizer.lua',
+  config = function()
+  require('colorizer').setup({
+    '*'; -- Enable for all file types
+  })
+
+  -- Autocmd to automatically attach Colorizer when entering any buffer
+  vim.api.nvim_create_autocmd('BufEnter', {
+    pattern = '*',
+    command = 'ColorizerAttachToBuffer'
+  })
+  end
+
   },
 })
 

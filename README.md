@@ -1,4 +1,6 @@
-﻿# nvim_config
+NOTE: config is now cross compatible with windows and unix like systems. You still may have to manually change imported module in init.lua from UnixConfig or WindowsConfig
+ 
+ # nvim_config
 
 ## Cheat sheet:
 :e $MYVIMRC

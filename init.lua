@@ -1,13 +1,14 @@
 vim.opt.termguicolors = true
 
 require("GlobalConfig")
-require("UnixConfig")
+require("WindowsConfig")
 
 vim.g.mapleader = ' '
 
 -- Set background and foreground colors
 
 -- Customize syntax highlighting with the selected color palette
+
 vim.api.nvim_set_hl(0, 'Comment', { fg = '#98C379', italic = true })  -- Soft green for comments
 vim.api.nvim_set_hl(0, 'Constant', { fg = '#D19A66' })                -- Soft orange for constants
 vim.api.nvim_set_hl(0, 'String', { fg = '#E5C07B' })                  -- Soft yellow for strings
@@ -45,3 +46,5 @@ vim.api.nvim_set_hl(0, 'TSVariable', { fg = '#56B6C2' })                -- Light
 vim.api.nvim_set_hl(0, 'TSKeyword', { fg = '#C678DD' })                 -- Soft purple for keywords/statements
 vim.api.nvim_set_hl(0, 'TSType', { fg = '#56B6C2' })                    -- Soft cyan for data types
 vim.api.nvim_set_hl(0, 'TSSpecial', { fg = '#E06C75' })                 -- Soft red for special characters
+
+

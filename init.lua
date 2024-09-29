@@ -7,9 +7,20 @@ vim.g.mapleader = ' '
 
 -- Set background and foreground colors
 
--- Customize syntax highlighting with the selected color palette
+-- Remove background
+vim.api.nvim_set_hl(0, "Normal", { bg = "NONE", fg = "#FFFFFF" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "FloatBorder", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "Pmenu", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "PmenuSel", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "LineNr", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "CursorLine", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "NonText", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "StatusLine", { bg = "NONE" })
+vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "NONE" })
 
-vim.api.nvim_set_hl(0, 'Comment', { fg = '#98C379', italic = true })  -- Soft green for comments
+-- Customize syntax highlighting with the selected color palette
+vim.api.nvim_set_hl(0, "Comment", { fg = "#90C379", italic = true })  -- Soft green for comments
 vim.api.nvim_set_hl(0, 'Constant', { fg = '#D19A66' })                -- Soft orange for constants
 vim.api.nvim_set_hl(0, 'String', { fg = '#E5C07B' })                  -- Soft yellow for strings
 vim.api.nvim_set_hl(0, 'Function', { fg = '#61AFEF' })                -- Soft blue for functions

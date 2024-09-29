@@ -22,6 +22,8 @@ nnoremap("<c-k>", "<c-u>zz<cr>")
 -- swap current line with line {below: J, abolve: K}
 vim.keymap.set('n', 'J', ':m .+1<CR>==', { noremap = true, silent = true })
 vim.keymap.set('n', 'K', ':m .-2<CR>==', { noremap = true, silent = true })
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 
 -- navigate back (n) and forward (n) in search array 
 vim.keymap.set("n", "n", "nzzzv")

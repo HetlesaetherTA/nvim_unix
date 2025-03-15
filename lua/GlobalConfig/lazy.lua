@@ -39,6 +39,7 @@ require("lazy").setup({
   'nvim-treesitter/nvim-treesitter', -- syntax highlighting etc
   'jose-elias-alvarez/null-ls.nvim', -- auto formatter
   'MunifTanjim/prettier.nvim', -- html formatter engine
+  'mcchrish/nnn.vim', -- better file manager 
   {
   'olexsmir/gopher.nvim', -- Go bonus features (Only in GO)
   ft = 'go',

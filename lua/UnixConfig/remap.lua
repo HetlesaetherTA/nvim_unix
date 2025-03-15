@@ -2,7 +2,12 @@ local nnoremap = require("UnixConfig.keymap").nnoremap
 -- local builtin = require("telescope.builtin")
 
 -- file explorer (netrw)
-vim.keymap.set('n',"<leader>pv", "<cmd>Ex<cr>")
+-- Check if 'nnn' is installed
+if vim.fn.executable("nnn") == 1 then
+    vim.api.nvim_set_keymap("n", "<leader>pv", ":NnnPicker<CR>", { noremap = true, silent = true })
+else
+    vim.api.nvim_set_keymap("n", "<leader>pv", "<cmd>Ex<CR>", { noremap = true, silent = true })
+end
 
 -- disable space in visual
 vim.api.nvim_set_keymap('v', '<Space>', '<Nop>', { noremap = true, silent = true })

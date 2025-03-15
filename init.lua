@@ -1,7 +1,7 @@
 vim.opt.termguicolors = true
 
 require("GlobalConfig")
-require("WindowsConfig")
+require("UnixConfig")
 
 vim.g.mapleader = ' '
 

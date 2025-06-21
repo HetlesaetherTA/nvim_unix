@@ -1,0 +1,6 @@
+require("plugins.lazy")
+-- require("plugins.fugitive")
+-- require("plugins.harpoon")
+-- require("plugins.nvim-dap")
+-- require("plugins.treesitter")
+-- require("plugins.undotree")

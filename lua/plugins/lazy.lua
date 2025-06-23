@@ -38,7 +38,7 @@ require("lazy").setup({
   'tpope/vim-surround', -- Replace code (cs"') "Hello" -> 'Hello'
   'ThePrimeagen/harpoon', -- Harpoon
   'nvim-treesitter/nvim-treesitter', -- syntax highlighting etc
-  'jose-elias-alvarez/null-ls.nvim', -- auto formatter
+  'nvimtools/none-ls.nvim', -- auto formatter
   'MunifTanjim/prettier.nvim', -- html formatter engine
   'mcchrish/nnn.vim', -- better file manager 
   {

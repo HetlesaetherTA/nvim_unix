@@ -13,6 +13,12 @@ end
 vim.opt.runtimepath:prepend(lazypath)
 
 require("lazy").setup({
+  {
+  "ojroques/nvim-osc52", -- clipboard
+  config = function()
+    require("plugins.clipboard")
+  end,
+  },
   'morhetz/gruvbox',
   'williamboman/mason.nvim', -- LSP, DAP, Linter, Formatter
   'mfussenegger/nvim-dap',

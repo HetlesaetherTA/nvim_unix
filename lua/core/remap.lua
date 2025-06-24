@@ -1,4 +1,4 @@
-local nnoremap = require("UnixConfig.keymap").nnoremap
+local nnoremap = require("core.keymap").nnoremap
 -- local builtin = require("telescope.builtin")
 
 -- file explorer (netrw)

@@ -1,12 +1,8 @@
 local lsp = require("lang_support.lsp_util")
 
-table.insert(_G.hetlesaetherTA_lsp_servers, "gopls") -- mason package id
-
-lsp.autostart_lsp("go", {
+lsp.register("gopls", "go", {
 	cmd = { "gopls" },
-	root_dir = function(buf)
-		return vim.fs.root(buf, { "go.work", "go.mod", ".git" })
-	end,
+	root_dir = lsp.root_pattern({ "go.work", "go.mod", ".git" }),
 	settings = {
 		gopls = {
 			staticcheck = true,

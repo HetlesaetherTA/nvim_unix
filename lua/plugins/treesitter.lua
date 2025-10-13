@@ -1,4 +1,14 @@
-require'nvim-treesitter.configs'.setup {
+require('nvim-ts-autotag').setup()
+
+require('treesitter-context').setup({
+  max_lines = 3,      -- show up to 3 lines of context
+  multiline_threshold = 1,
+  mode = 'cursor',    -- update on cursor move
+  trim_scope = 'inner',
+  separator = '-',    -- put a separator line under the context
+})
+
+require('nvim-treesitter.configs').setup({
   ensure_installed = {
     "bash",
     "c",
@@ -13,9 +23,9 @@ require'nvim-treesitter.configs'.setup {
     "typescript",
     "vim",
     "yaml",
-  }, -- Install all listed parsers
+  },
   highlight = {
-    enable = true,              -- false will disable the whole extension
+    enable = true,
   },
   incremental_selection = {
     enable = true,
@@ -29,7 +39,7 @@ require'nvim-treesitter.configs'.setup {
   textobjects = {
     select = {
       enable = true,
-      lookahead = true,          -- Automatically jump forward to textobj, similar to targets.vim
+      lookahead = true,
       keymaps = {
         ["af"] = "@function.outer", -- Select around a function
         ["if"] = "@function.inner", -- Select inner part of a function
@@ -38,4 +48,4 @@ require'nvim-treesitter.configs'.setup {
       },
     },
   },
-}
+})

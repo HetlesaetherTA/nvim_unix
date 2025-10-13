@@ -45,5 +45,7 @@ vim.keymap.set("v", "<", "<gv")
 -- redo bound to shift+u
 vim.keymap.set("n", "U", "<C-r>")
 
--- execute
-nnoremap("<leader>rn", "<cmd>!%<CR>")
+vim.keymap.set('n','<leader>g', function()
+  vim.diagnostic.open_float(nil, {focus=true, border='rounded'})
+end, { desc = 'Line diagnostics' })
+

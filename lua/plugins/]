@@ -1,0 +1,108 @@
+require('colorizer').setup({ 
+  filetypes = { "*" },
+  RGB = true, RRGGBB = true, RRGGBBAA = true,
+  names = true, rgb_fn = true, hsl_fn = true,
+  css = true, css_fn = true,
+  mode = 'background', -- or 'foreground'
+})
+
+vim.api.nvim_create_autocmd({ 'BufReadPost', 'BufNewFile' }, {
+  callback = function() pcall(require('colorizer').attach_to_buffer, 0) end,
+})
+
+do
+  local ok, colorizer = pcall(require, 'colorizer')
+  if ok then
+    colorizer.setup({
+      filetypes = { '*' }, -- enable everywhere
+      user_default_options = {
+        RGB = true, RRGGBB = true, RRGGBBAA = true,
+        names = false,
+        css = true, css_fn = true,
+        tailwind = 'both',           -- keep if you use Tailwind; otherwise remove
+        mode = 'virtualtext',        -- small colored block after the code
+      },
+    })
+  end
+end
+
+do
+  local ok, rd = pcall(require, 'rainbow-delimiters')
+  if ok then
+    vim.g.rainbow_delimiters = {
+      strategy  = { [''] = rd.strategy.global, vim = rd.strategy.local },
+      query     = { [''] = 'rainbow-delimiters', lua = 'rainbow-blocks' },
+      highlight = {
+        'RainbowDelimiter1','RainbowDelimiter2','RainbowDelimiter3',
+        'RainbowDelimiter4','RainbowDelimiter5','RainbowDelimiter6',
+      },
+    }
+
+    local grp = vim.api.nvim_create_augroup('RainbowHL', { clear = true })
+    vim.api.nvim_create_autocmd('ColorScheme', {
+      group = grp,
+      callback = function()
+        local set = vim.api.nvim_set_hl
+        local colors = {
+          '#89b4fa', -- soft blue
+          '#a6e3a1', -- soft green
+          '#f9e2af', -- warm sand
+          '#fab387', -- peach
+          '#cba6f7', -- lavender
+          '#94e2d5', -- aqua
+        }
+        for i, c in ipairs(colors) do
+          set(0, ('RainbowDelimiter%d'):format(i), { fg = c })
+        end
+      end,
+    })
+  end
+end
+
+do
+  local ok, tsc = pcall(require, 'treesitter-context')
+  if ok then
+    tsc.setup({
+      max_lines = 3,
+      mode = 'cursor',
+      trim_scope = 'inner',
+      separator = '-',  -- line under the context
+    })
+  end
+end
+
+----------------------------------------------------------------------
+-- Better matching for tags/braces + improved %: andymass/vim-matchup
+----------------------------------------------------------------------
+-- Global vars are the plugin’s API
+vim.g.matchup_matchparen_offscreen = { method = 'popup' }
+vim.g.matchup_matchparen_deferred  = 1
+vim.g.matchup_surround_enabled     = 1
+
+----------------------------------------------------------------------
+-- Indent guides: lukas-reineke/indent-blankline.nvim (ibl)
+----------------------------------------------------------------------
+do
+  local ok, ibl = pcall(require, 'ibl')
+  if ok then
+    -- use a few subtle colors; link to rainbow if present
+    local hooks_ok, hooks = pcall(require, 'ibl.hooks')
+    if hooks_ok then
+      hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+        -- link indent colors to rainbow groups (keeps palette in sync)
+        vim.api.nvim_set_hl(0, 'IndentRainbow1', { link = 'RainbowDelimiter1' })
+        vim.api.nvim_set_hl(0, 'IndentRainbow2', { link = 'RainbowDelimiter2' })
+        vim.api.nvim_set_hl(0, 'IndentRainbow3', { link = 'RainbowDelimiter3' })
+      end)
+    end
+
+    ibl.setup({
+      indent = {
+        char = '│',
+        highlight = { 'IndentRainbow1', 'IndentRainbow2', 'IndentRainbow3' },
+      },
+      scope = { enabled = true, show_start = true, show_end = true },
+    })
+  end
+end
+

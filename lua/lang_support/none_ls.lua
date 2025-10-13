@@ -1,21 +1,25 @@
-local none_ls = require("null-ls")
+local null = require("null-ls")
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-none_ls.setup({
+null.setup({
   sources = {
     -- Go formatters
-    none_ls.builtins.formatting.gofumpt,
-    none_ls.builtins.formatting.goimports_reviser,
-    none_ls.builtins.formatting.golines,
+    null.builtins.formatting.gofumpt,
+    null.builtins.formatting.goimports_reviser,
+    null.builtins.formatting.golines,
 
 
     -- Web formatters (HTML/CSS/JS/JSON/Markdown/YAML)
-    none_ls.builtins.formatting.prettier.with({
+    null.builtins.formatting.prettier.with({
       filetypes = {
         "html", "css", "javascript", "typescript",
         "json", "yaml", "markdown"
       },
     }),
+
+    -- Lua formatters
+    null.builtins.formatting.stylua, -- uses your stylua.toml
+
   },
 
   on_attach = function(client, bufnr)

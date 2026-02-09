@@ -9,7 +9,7 @@ else
     {
       "LazyVim/LazyVim",
       opts = {
-        colorscheme = "gruvbox",
+        colorscheme = "tokyonight-moon",
       },
     },
   }
